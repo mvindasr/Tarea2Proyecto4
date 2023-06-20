@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="note_list_header">My Notes</string>
+    <string name="switch_to_add_button">+ Add Note</string>
+    <string name="add_note_header">Custom your note</string>
+    <string name="edit_note_title">Enter a title</string>
+    <string name="edit_note_description">Enter a description</string>
+    <string name="edit_note_tag">Type of tag</string>
+    <string name="save_note_button">Save Note</string>
+    <string name="dropdown_option_cenfotec">Cenfotec</string>
+    <string name="dropdown_option_home">Home</string>
+    <string name="dropdown_option_work">Work</string>
+    <string name="add_note_message">" was added"</string>
+    <string name="delete_note_message">" was deleted"</string>
+</resources>

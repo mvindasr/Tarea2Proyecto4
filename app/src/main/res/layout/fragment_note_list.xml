@@ -7,10 +7,73 @@
     android:layout_height="match_parent"
     tools:context=".ui.notes.NoteListFragment">
 
+
+    <View
+        android:id="@+id/header_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/md_theme_dark_onPrimary"
+        app:layout_constraintBottom_toTopOf="@id/notes_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_weight="0.1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Header"
+        android:text="@string/note_list_header"
+        app:layout_constraintBottom_toBottomOf="@id/header_list"
+        app:layout_constraintEnd_toEndOf="@id/header_list"
+        app:layout_constraintStart_toStartOf="@id/header_list"
+        app:layout_constraintTop_toTopOf="@id/header_list"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notes_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/note_item_layout"
-        tools:itemCount="10"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@id/footer_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_list"
+        app:layout_constraintVertical_weight="0.8"
+        tools:itemCount="5"
+        tools:listitem="@layout/note_item_layout" />
+
+    <View
+        android:id="@+id/footer_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/md_theme_light_onError"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notes_list"
+        app:layout_constraintVertical_weight="0.1" />
+
+
+    <Button
+        android:id="@+id/button_to_add"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:layout_marginBottom="20dp"
+        android:background="@color/md_theme_light_tertiary"
+        android:text="@string/switch_to_add_button"
+        android:textAllCaps="false"
+        android:textColor="@color/md_theme_light_primaryContainer"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/footer_list"
+        app:layout_constraintEnd_toEndOf="@id/footer_list"
+        app:layout_constraintStart_toStartOf="@id/footer_list"
+        app:layout_constraintTop_toTopOf="@id/footer_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

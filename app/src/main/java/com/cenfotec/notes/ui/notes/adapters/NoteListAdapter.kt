@@ -44,6 +44,7 @@ class NoteItemViewHolder(view:View):RecyclerView.ViewHolder(view) {
             findViewById<MaterialTextView>(R.id.note_tag).text = "#${noteModel.tag.title}"
             itemView.setOnLongClickListener {
                 onItemLongClicked.invoke(noteModel)
+
                 return@setOnLongClickListener false
             }
         }

@@ -1,0 +1,152 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notes.AddNoteFragment">
+
+    <!-- Header Section -->
+
+    <View
+        android:id="@+id/header_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/md_theme_dark_onPrimary"
+        app:layout_constraintBottom_toTopOf="@id/form_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_weight="0.1"/>
+
+    <TextView
+        android:id="@+id/textview_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Header"
+        android:text="@string/add_note_header"
+        app:layout_constraintBottom_toBottomOf="@id/header_view"
+        app:layout_constraintEnd_toEndOf="@id/header_view"
+        app:layout_constraintStart_toStartOf="@id/header_view"
+        app:layout_constraintTop_toTopOf="@id/header_view"/>
+
+
+    <!-- Form Section -->
+    <View
+        android:id="@+id/form_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/md_theme_light_onError"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toTopOf="@id/footer_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_view"
+        app:layout_constraintVertical_weight="0.5"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/title_text_field"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/edit_note_title"
+        app:layout_constraintBottom_toTopOf="@id/description_text_field"
+        app:layout_constraintEnd_toEndOf="@id/form_view"
+        app:layout_constraintStart_toStartOf="@id/form_view"
+        app:layout_constraintTop_toTopOf="@id/form_view">
+
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description_text_field"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/edit_note_description"
+        app:layout_constraintBottom_toTopOf="@id/tag_field"
+        app:layout_constraintEnd_toEndOf="@id/form_view"
+        app:layout_constraintStart_toStartOf="@id/form_view"
+        app:layout_constraintTop_toBottomOf="@id/title_text_field">
+
+
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tag_field"
+
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/edit_note_tag"
+        app:layout_constraintBottom_toBottomOf="@id/form_view"
+        app:layout_constraintEnd_toEndOf="@id/form_view"
+        app:layout_constraintStart_toStartOf="@id/form_view"
+        app:layout_constraintTop_toBottomOf="@id/description_text_field">
+
+        <AutoCompleteTextView
+            android:id="@+id/tag_dropdown_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Footer Section (Button) -->
+
+    <View
+        android:id="@+id/footer_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/md_theme_light_onError"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_view"
+        app:layout_constraintVertical_weight="0.3"/>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rect_rounded_button"
+        android:text="@string/save_note_button"
+        android:textAllCaps="false"
+        android:textColor="@color/md_theme_light_primaryContainer"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/footer_view"
+        app:layout_constraintEnd_toEndOf="@id/footer_view"
+        app:layout_constraintStart_toStartOf="@id/footer_view"
+        app:layout_constraintTop_toTopOf="@id/footer_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@ package com.cenfotec.notes.data.datasources
 import com.cenfotec.notes.data.models.LocalNote
 import com.cenfotec.notes.data.models.LocalTag
 
-class LocalNoteDataSource {
+object LocalNoteDataSource {
 
     private val notes = mutableListOf(
         LocalNote(

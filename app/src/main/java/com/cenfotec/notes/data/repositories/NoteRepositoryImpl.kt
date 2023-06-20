@@ -1,6 +1,7 @@
 package com.cenfotec.notes.data.repositories
 
 import com.cenfotec.notes.data.datasources.LocalNoteDataSource
+import com.cenfotec.notes.data.mappers.NoteMapper.toLocalNote
 import com.cenfotec.notes.data.mappers.NoteMapper.toNote
 import com.cenfotec.notes.domain.models.NoteModel
 import com.cenfotec.notes.domain.repositories.NoteRepository
@@ -11,6 +12,14 @@ class NoteRepositoryImpl(
     override fun getAllNotes(): List<NoteModel> {
         return localNoteDataSource.getAllNotes()
             .map { item -> item.toNote() }
+    }
+
+    override fun addNote(note: NoteModel) {
+        localNoteDataSource.addNote(note.toLocalNote())
+    }
+
+    override fun deleteNote(id: Int) {
+        localNoteDataSource.deleteNote(id)
     }
 
 }

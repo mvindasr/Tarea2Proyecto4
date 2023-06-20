@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notas</string>
+    <string name="note_list_header">Mis Notas</string>
+    <string name="switch_to_add_button">+ Agregar Nota</string>
+    <string name="add_note_header">Personaliza tu nota</string>
+    <string name="edit_note_title">Ingresa un título</string>
+    <string name="edit_note_description">Ingresa una descripción</string>
+    <string name="edit_note_tag">Tipo de etiqueta</string>
+    <string name="save_note_button">Guardar Nota</string>
+    <string name="dropdown_option_cenfotec">Cenfotec</string>
+    <string name="dropdown_option_home">Hogar</string>
+    <string name="dropdown_option_work">Trabajo</string>
+    <string name="add_note_message">" fue agregado"</string>
+    <string name="delete_note_message">" fue eliminado"</string>
+</resources>

@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.cenfotec.notes.R
 import com.cenfotec.notes.domain.models.NoteModel
 import com.cenfotec.notes.ui.notes.adapters.NoteListAdapter
@@ -38,8 +38,15 @@ class NoteListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_note_list, container, false)
+        val btnToAdd = view.findViewById<Button>(R.id.button_to_add)
+
+
         initViews(view)
         viewModel = ViewModelProvider(this)[NoteListViewModel::class.java]
+
+        btnToAdd.setOnClickListener {
+            switchToAddNoteFragment()
+        }
         observe()
         return view
     }
@@ -67,8 +74,21 @@ class NoteListFragment : Fragment() {
 
     //presionar varios segundos para el delete
     private fun onListItemClicked(noteModel: NoteModel) {
-        Toast.makeText(context, "${noteModel.title} was clicked", Toast.LENGTH_LONG).show()
-        // Todo remove item
+        viewModel.noteDeletion(noteModel.id)
+        adapter.notifyDataSetChanged()
+
+        Toast.makeText(context, "'${noteModel.title}'" + (context?.getText(R.string.delete_note_message)
+            ?: "fue eliminada" ), Toast.LENGTH_LONG).show()
+
     }
+
+    private fun switchToAddNoteFragment() {
+        val addNoteFragment = AddNoteFragment()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, addNoteFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 
 }

@@ -15,4 +15,14 @@ object NoteMapper {
             date = this.date
         )
     }
+
+    fun NoteModel.toLocalNote():LocalNote {
+        return LocalNote(
+            id = this.id,
+            title = this.title,
+            description = this.description,
+            tag = this.tag.toTag(),
+            date = this.date
+        )
+    }
 }
